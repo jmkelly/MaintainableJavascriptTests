@@ -4,7 +4,7 @@
     }
 }
 
-var Midway = {
+var Application = {
     Math: {
         add: function (a, b) {
             return a + b;
@@ -21,8 +21,8 @@ var Midway = {
         }
     },
 
-    EstablishmentUnit: function (eu) {
-        this.eu = eu,
+    Book: function (name) {
+        this.name = name,
         this.fixedId = 15
     },
     Comparison: {

@@ -52,16 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\js\code.js" />
-    <Content Include="assets\js\lib\jasmine-html.js" />
-    <Content Include="assets\js\lib\jasmine.css" />
-    <Content Include="assets\js\lib\jasmine.js" />
     <Content Include="assets\js\lib\qunit.css" />
     <Content Include="assets\js\lib\qunit.js" />
     <Content Include="assets\js\tests\qunitTests.js" />
-    <Content Include="assets\js\tests\spec.js" />
-    <Content Include="Index.html" />
     <Content Include="qunitTests.html" />
-    <Content Include="spec.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
