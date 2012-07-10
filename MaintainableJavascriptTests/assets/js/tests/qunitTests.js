@@ -94,7 +94,7 @@ test("check the error type of custom error", function () {
     }
 });
 
-module("object inheritance");
+module("inheritance");
 
 test("object-based inheritance", function () {
     var person = Object.create(Application.Person);
@@ -108,5 +108,34 @@ test("object-based inheritance with override", function () {
     equal(person2.sayName(), "Bob");
 
 });
+
+test("type-based inheritance", function () {
+    //var book = new Application.Book("The Man and the Sea");
+    //var book = new Application.Book();
+    Application.HeavyBook.prototype = new Application.Book();
+    equal(Application.HeavyBook.name, "");
+});
+
+test("facade pattern", function () {
+    var book = new Application.Book("Lord of the Flies");
+    var author = {};
+    author.firstname = "William";
+    author.lastname = "Golding";
+    var bookWrapper = new Application.BookWrapper(book);
+    //bookWrapper.addAuthor(author); //need to read up on this one, not sure why it isn't working....
+});
+
+test("object is not extensible", function () {
+
+    var person = Application.Person;
+    var book = new Application.Book("A book");
+    Object.preventExtensions(person);
+    Object.preventExtensions(book);
+    ok(!Object.isExtensible(person));
+    ok(!Object.isExtensible(book));
+    book.author = "An Author";
+    notEqual(book.name, "An Author");
+});
+
 
 

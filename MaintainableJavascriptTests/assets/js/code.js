@@ -13,7 +13,7 @@ var Application = {
             return a - b;
         }
     },
-    Person: 
+    Person:  
     {
         name: "James",
         sayName: function(){
@@ -21,10 +21,24 @@ var Application = {
         }
     },
 
+
     Book: function (name) {
+        this.authors = {};
         this.name = name,
         this.fixedId = 15
     },
+
+    BookWrapper : function(book)
+    {
+        this.book = book;
+    },
+
+
+    HeavyBook: function (name)
+    {
+        Book.Call(this, name);
+    },
+
     Comparison: {
         isArray: function (value) {
             return typeof value.sort === "function";
@@ -68,6 +82,10 @@ var Errors = {
     CustomError: function CustomError(message) {
         this.message = message;
     }
+}
+
+Application.BookWrapper.prototype.addAuthor = function(author){
+        book.authors.add(author);
 }
 
 
