@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintainableJavascriptTests", "Javascript\MaintainableJavascriptTests.csproj", "{BF4CD3AF-FFB9-4AFE-8721-7574F889593B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintainableJavascriptTests", "MaintainableJavascriptTests\MaintainableJavascriptTests.csproj", "{BF4CD3AF-FFB9-4AFE-8721-7574F889593B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
