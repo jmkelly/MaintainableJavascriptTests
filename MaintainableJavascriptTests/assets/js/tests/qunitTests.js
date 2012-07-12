@@ -126,7 +126,6 @@ test("facade pattern", function () {
 });
 
 test("object is not extensible", function () {
-
     var person = Application.Person;
     var book = new Application.Book("A book");
     Object.preventExtensions(person);
@@ -137,5 +136,56 @@ test("object is not extensible", function () {
     notEqual(book.name, "An Author");
 });
 
+test("object is sealed", function () {
+    "use strict";
+    var person = Application.Person;
+    Object.seal(person);
+    ok(!Object.isExtensible(person));
+    ok(Object.isSealed(person));
+
+    raises(function () {
+        delete person.name;
+    },
+        Error, "Should not be able to delete propery of sealed object");
+    raises(function () {
+        person.age = 25;
+    }, Error, "Should not be able to modify a non existent property");
+
+});
+
+test("object is frozen", function () {
+    "use strict";
+    var person = Application.Person;
+    Object.freeze(person);
+    ok(!Object.isExtensible(person));
+    ok(Object.isSealed(person));
+    ok(Object.isFrozen(person));
+    raises(function () {
+        person.name = "Greg";
+    }, Error, "Cannot set an existing property on a frozen object");
+});
+
+test("namespaced function can call the bar function through foo", function () {
+    //"use strict";
+    //var app = Object.create(SecondApplication);
+    var app = new Object(SecondApplication);
+    var app2 = Object.create(SecondApplication);
+    try {
+        app.foo();
+        app2.foo();
+        SecondApplication.foo();
+        ok(true, "application object is instantiated and hidden functio bar is called through foo");
+    } catch (ex) {
+        ok(false);
+    }
+
+    try {
+        SecondApplication.bar();
+        ok(false);
+    } catch (e) {
+        ok(true, "directly calling bar should fail");
+    }
+
+});
 
 

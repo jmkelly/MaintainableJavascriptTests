@@ -5,42 +5,41 @@
 }
 
 var Application = {
+
     Math: {
-        add: function (a, b) {
+        add: function(a, b) {
             return a + b;
         },
         subtract: function (a, b) {
             return a - b;
         }
     },
-    Person:  
+    Person:
     {
         name: "James",
-        sayName: function(){
+        sayName: function() {
             return this.name;
         }
     },
 
 
-    Book: function (name) {
+    Book: function(name) {
         this.authors = {};
         this.name = name,
         this.fixedId = 15
     },
 
-    BookWrapper : function(book)
-    {
+    BookWrapper: function(book) {
         this.book = book;
     },
 
 
-    HeavyBook: function (name)
-    {
+    HeavyBook: function(name) {
         Book.Call(this, name);
     },
 
     Comparison: {
-        isArray: function (value) {
+        isArray: function(value) {
             return typeof value.sort === "function";
         }
     },
@@ -87,6 +86,22 @@ var Errors = {
 Application.BookWrapper.prototype.addAuthor = function(author){
         book.authors.add(author);
 }
+
+
+    var SecondApplication = {};
+    
+    (function () {
+        var result;
+
+        SecondApplication.foo = function () {
+            bar();
+        }
+
+        function bar() {
+            console.log("bar was called");
+        }
+    })();
+
 
 
 
